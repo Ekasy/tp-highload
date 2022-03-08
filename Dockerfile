@@ -1,12 +1,9 @@
-FROM python:3.8-slim-buster
+FROM python:3.8-slim
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY . .
+COPY . /usr/src/app
 
-RUN apt-get -y update &&\
-    apt-get -y install git
+EXPOSE 80
 
-RUN git clone https://github.com/init/http-test-suite.git
-
-CMD ["python", "main.py"]
+CMD ["python3", "./main.py"]

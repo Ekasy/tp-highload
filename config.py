@@ -18,7 +18,7 @@ class Config:
         assert(conf)
         self._data = {
             'server': {
-                'host': 'localhost',
+                'host': '127.0.0.1',
                 'port': 8080,
                 'log_level': 'info',
                 'process_num': conf['cpu_limit']
@@ -27,6 +27,8 @@ class Config:
                 'document_root': conf['document_root']
             }
         }
+
+        print('Parsed config:\n', self._data)
 
     @property
     def server(self):

@@ -11,7 +11,7 @@ class Server:
         self.host = config['host']
         self.port = config['port']
         self.process_num = Server.__get_process_num(config['process_num'])
-        self.logger = Logger(config['log_level'])
+        self.logger = Logger(config['log_level']).logger
         self.process_pull = []
         self.server_socket = None
 
@@ -47,9 +47,11 @@ class Server:
             self.prefork()
 
         try:
+            self.logger.info(f'start server at {self.host}:{self.port}\n\tprocess_num: {self.process_num}')
             for prc in self.process_pull:
                 prc.join()
         except KeyboardInterrupt:
+            self.logger.info(f'stop server')
             for prc in self.process_pull:
                 prc.terminate()
             self.server_socket.close()
