@@ -1,9 +1,9 @@
 FROM python:3.8-slim
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY . /usr/src/app
+COPY . /app
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["python3", "./main.py"]

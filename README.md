@@ -6,7 +6,7 @@
 
 ## Функциональное тестирование
 ```
-python3 ./main.py
+make run
 
 chmod +x run_tests.sh
 ./run_tests.sh localhost 8080
